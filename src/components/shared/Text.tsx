@@ -11,14 +11,14 @@ const Heading1 = ({ children, className, underline }: HeadingProps) => (
   <div className="">
     <h1
       className={cn(
-        "text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight",
-        className
+        "text-3xl font-bold tracking-tight md:text-4xl lg:text-6xl",
+        className,
       )}
     >
       {children}
     </h1>
 
-    {underline && <div className="w-40 max-w-1/2 h-2 rounded bg-blue" />}
+    {underline && <div className="bg-blue h-2 w-40 max-w-1/2 rounded" />}
   </div>
 );
 
@@ -26,22 +26,22 @@ const Heading2 = ({ children, className, underline }: HeadingProps) => (
   <div className="">
     <h2
       className={cn(
-        "lg:text-4xl text-2xl md:text-3xl font-semibold tracking-tight",
-        className
+        "text-2xl font-semibold tracking-tight md:text-3xl lg:text-4xl",
+        className,
       )}
     >
       {children}
     </h2>
 
-    {underline && <div className="w-40 max-w-1/2 h-2 rounded bg-blue" />}
+    {underline && <div className="bg-blue h-2 w-40 max-w-1/2 rounded" />}
   </div>
 );
 
 const Heading3 = ({ children, className }: HeadingProps) => (
   <h3
     className={cn(
-      "lg:text-3xl text-xl md:text-2xl font-semibold tracking-tight",
-      className
+      "text-xl font-semibold tracking-tight md:text-2xl lg:text-3xl",
+      className,
     )}
   >
     {children}
@@ -56,8 +56,8 @@ type ParagraphProps = {
 const Paragraph = ({ children, className }: ParagraphProps) => (
   <p
     className={cn(
-      "text-lg leading-relaxed text-poppins text-gray-700 dark:text-gray-400",
-      className
+      "text-poppins text-lg leading-relaxed text-gray-700 dark:text-gray-400",
+      className,
     )}
   >
     {children}

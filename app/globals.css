@@ -78,8 +78,32 @@
   * {
     @apply border-border outline-ring/50;
   }
+  @keyframes settle {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .reveal {
+    animation: settle 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+
+  .dark-card-glow {
+    background: radial-gradient(
+      circle at var(--x, 50%) var(--y, 50%),
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%
+    );
+  }
+
   html {
     /* Smooth transitions for a high-end feel */
+    scroll-behavior: smooth;
     transition:
       background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
       color 0.5s cubic-bezier(0.4, 0, 0.2, 1);

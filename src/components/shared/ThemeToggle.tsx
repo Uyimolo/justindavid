@@ -15,10 +15,12 @@ export default function ThemeToggle() {
   useEffect(() => {
     setMounted(true);
     const stored = localStorage.getItem("theme") as Theme | null;
-    const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    
+    const systemPrefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+
     const initialTheme = stored || (systemPrefersDark ? "dark" : "light");
-    
+
     setTheme(initialTheme);
     // Use the force boolean (true adds, false removes)
     document.documentElement.classList.toggle("dark", initialTheme === "dark");
@@ -27,31 +29,31 @@ export default function ThemeToggle() {
   const toggleTheme = () => {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
-    
+
     // CRITICAL FIX: Explicitly tell the DOM what the state is
     document.documentElement.classList.toggle("dark", next === "dark");
     localStorage.setItem("theme", next);
   };
 
   // Avoid "Hydration Mismatch" (button showing sun while page is dark)
-  if (!mounted) return <div className="w-15 h-8" />;
+  if (!mounted) return <div className="h-8 w-15" />;
 
   return (
     <button
       onClick={toggleTheme}
-      className="relative w-15 h-8 rounded-full border flex items-center p-1 bg-green-500 cursor-pointer"
+      className="relative flex h-8 w-15 cursor-pointer items-center rounded-full border bg-green-500 p-1"
       aria-label="Toggle theme"
     >
       <span
         className={cn(
-          "h-6 w-6 rounded-full transition-all duration-300 bg-white flex items-center justify-center shadow-sm",
-          theme === "dark" ? "translate-x-7" : "translate-x-0"
+          "flex h-6 w-6 items-center justify-center rounded-full bg-white shadow-sm transition-all duration-300",
+          theme === "dark" ? "translate-x-7" : "translate-x-0",
         )}
       >
         {theme === "light" ? (
-          <IoMdSunny className="text-green-500 size-4" />
+          <IoMdSunny className="size-4 text-green-500" />
         ) : (
-          <FaMoon className="text-green-500 size-4" />
+          <FaMoon className="size-4 text-green-500" />
         )}
       </span>
     </button>

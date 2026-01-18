@@ -6,17 +6,17 @@ import { FiMenu, FiX } from "react-icons/fi";
 import ThemeToggle from "./ThemeToggle";
 import Logo from "./Logo";
 
-const navItems = ["Home", "Services", "Portfolio", "Contact"];
+const navItems = ["Home", "About me", "Portfolio", "Contact"];
 
 const Header = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="py-5 fixed z-10 px-5 md:px-10 lg:px-20  flex items-center justify-between  border-black w-full">
+    <header className="fixed z-10 flex w-full items-center justify-between border-black px-5 py-5 md:px-10 lg:px-20">
       {/* Logo */}
       <Link
         href="/"
-        className="relative flex w-fit items-center space-x-px text-md text-black dark:text-white"
+        className="text-md relative flex w-fit items-center space-x-px text-black dark:text-white"
       >
         <Logo />
         <p>Justin</p>
@@ -29,7 +29,10 @@ const Header = () => {
         <ul className="flex items-center gap-6">
           {navItems.map((item) => (
             <li key={item}>
-              <Link href={`#${item}`} className="hover:underline">
+              <Link
+                href={`#${item.toLowerCase().replace(" ", "-")}`}
+                className="hover:underline"
+              >
                 {item}
               </Link>
             </li>
@@ -42,33 +45,30 @@ const Header = () => {
         Contact me
       </button> */}
 
-      <div className="flex gap-6 items-center">
-        
-      <ThemeToggle />
+      <div className="flex items-center gap-6">
+        <ThemeToggle />
 
-      {/* Mobile Menu Button */}
-      <button
-        onClick={() => setOpen(true)}
-        className="md:hidden"
-        aria-label="Open menu"
-      >
-        <FiMenu size={22} />
-      </button>
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setOpen(true)}
+          className="md:hidden"
+          aria-label="Open menu"
+        >
+          <FiMenu size={22} />
+        </button>
       </div>
-
 
       {/* Mobile Overlay */}
       {open && (
         <div
-          className="fixed md:hidden inset-0 bg-black/40 z-40"
+          className="fixed inset-0 z-40 bg-black/40 md:hidden"
           onClick={() => setOpen(false)}
         />
       )}
 
       {/* Mobile Sidebar */}
       <aside
-        className={`fixed top-0 right-0 h-full space-y-12 w-64 md:hidden bg-white/50 dark:bg-black/50 backdrop-blur-sm border-r border-border z-50 transform transition-transform duration-300
-        ${open ? "translate-x-0" : "translate-x-full"}`}
+        className={`border-border fixed top-0 right-0 z-50 h-full w-64 transform space-y-12 border-r bg-white/50 backdrop-blur-sm transition-transform duration-300 md:hidden dark:bg-black/50 ${open ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex items-center justify-between p-4">
           <button
@@ -95,7 +95,7 @@ const Header = () => {
             ))}
           </ul>
 
-          <button className="mt-12 w-full rounded-lg border px-4 py-3 bg-black text-white">
+          <button className="mt-12 w-full rounded-lg border bg-black px-4 py-3 text-white">
             Contact me
           </button>
         </nav>

@@ -20,7 +20,7 @@ const FixedStarsBackground = () => {
   return (
     <motion.div
       style={{ scale, perspective: "1000px" }}
-      className="fixed left-0 top-0 z-0 h-screen w-full"
+      className="fixed top-0 left-0 z-0 h-screen w-full"
     >
       <StarsBackground starDensity={!isDesktop ? 0.0004 : 0.0002} />
       <ShootingStars />

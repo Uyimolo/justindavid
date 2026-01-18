@@ -3,7 +3,7 @@ import { Poppins, Fira_Code } from "next/font/google";
 import "./globals.css";
 import Header from "@/src/components/shared/Header";
 import { cn } from "@/lib/utils";
-import FixedStarsBackground from "@/src/components/animations/FixedStarsBackground";
+// import FixedStarsBackground from "@/src/components/animations/FixedStarsBackground";
 import Footer from "@/src/components/shared/Footer";
 
 const poppins = Poppins({
@@ -43,12 +43,12 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "font-sans min-h-screen",
+          "min-h-screen font-sans",
           poppins.variable,
           firaCode.variable,
         )}
       >
-        <FixedStarsBackground />
+        {/* <FixedStarsBackground /> */}
         <Header />
         {children}
         <Footer />

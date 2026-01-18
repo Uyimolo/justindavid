@@ -14,7 +14,8 @@ const Works = () => {
     {
       title: "Jacinth Forge",
       tagline: "Lead Frontend Developer • Production LMS",
-      description: "Architected a comprehensive vocational LMS serving real-world students. Focused on high-performance course delivery and accessibility.",
+      description:
+        "Architected a comprehensive vocational LMS serving real-world students. Focused on high-performance course delivery and accessibility.",
       stack: ["Next.js", "TypeScript", "FastApi", "PostgreSQL", "Docker"],
       image: jacinthforge,
       link: "https://jacinthforge.com",
@@ -47,51 +48,66 @@ const Works = () => {
   ];
 
   return (
-    <section className="py-24 space-y-16">
+    <section id="portfolio" className="space-y-16 py-24">
       <div className="flex flex-col items-start gap-3">
-        <span className="text-primary font-mono text-sm tracking-widest uppercase">02. Selected Works</span>
+        <span className="text-primary font-mono text-sm tracking-widest uppercase">
+          02. Selected Works
+        </span>
         <Heading2>Portfolio Showcase</Heading2>
         <Paragraph className="max-w-2xl opacity-80">
-          A curated selection of digital experiences, ranging from full-scale production systems to experimental web applications.
+          A curated selection of digital experiences, ranging from full-scale
+          production systems to experimental web applications.
         </Paragraph>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2">
         {works.map((work) => (
           <div
             key={work.title}
             className={cn(
-              "group relative flex flex-col rounded-3xl overflow-hidden border border-border shadow-xl bg-card/30 backdrop-blur-[1px] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2",
-              work.featured && "md:col-span-2 bg-linear-to-br from-primary/10 to-transparent"
+              "group border-border bg-card/30 relative flex flex-col overflow-hidden rounded-3xl border shadow-xl backdrop-blur-[1px] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl",
+              // work.featured && "md:col-span-2 bg-linear-to-br from-primary/10 to-transparent"
             )}
           >
             {/* Project Image Area */}
-            <div className="relative aspect-video md:aspect-auto  overflow-hidden m-3 rounded-2xl">
+            <div className="relative m-3 aspect-video overflow-hidden rounded-2xl md:aspect-auto">
               <Image
                 src={work.image}
                 alt={work.title}
-                className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 placeholder="blur"
               />
               {/* Overlay on hover */}
-              <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4">
-                 <Link href={work.link} target="_blank" className="bg-white text-black p-4 rounded-full hover:scale-110 transition-transform">
-                    <LuExternalLink size={24} />
-                 </Link>
+              <div className="bg-primary/20 absolute inset-0 flex items-center justify-center gap-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                <Link
+                  href={work.link}
+                  target="_blank"
+                  className="rounded-full bg-white p-4 text-black transition-transform hover:scale-110"
+                >
+                  <LuExternalLink size={24} />
+                </Link>
               </div>
             </div>
 
             {/* Project Info */}
-            <div className="p-8 pt-4 flex flex-col grow">
-              <div className="flex justify-between items-center mb-4">
+            <div className="flex grow flex-col p-8 pt-4">
+              <div className="mb-4 flex items-center justify-between">
                 <div>
-                  <Heading3 className="text-2xl font-bold group-hover:text-primary transition-colors">{work.title}</Heading3>
-                  <p className="text-sm text-primary font-medium tracking-tight mt-1">{work.tagline}</p>
+                  <Heading3 className="group-hover:text-primary text-2xl font-bold transition-colors">
+                    {work.title}
+                  </Heading3>
+                  <p className="text-primary mt-1 text-sm font-medium tracking-tight">
+                    {work.tagline}
+                  </p>
                 </div>
-                
+
                 <div className="flex gap-3">
                   {work.github && (
-                    <Link href={work.github} target="_blank" className="p-2 rounded-full border border-border hover:bg-foreground hover:text-background transition-all">
+                    <Link
+                      href={work.github}
+                      target="_blank"
+                      className="border-border hover:bg-foreground hover:text-background rounded-full border p-2 transition-all"
+                    >
                       <BsGithub size={20} />
                     </Link>
                   )}
@@ -99,7 +115,7 @@ const Works = () => {
               </div>
 
               {work.featured && (
-                <Paragraph className="mb-6 line-clamp-2 opacity-80 max-w-3xl">
+                <Paragraph className="mb-6 line-clamp-2 max-w-3xl opacity-80">
                   {work.description}
                 </Paragraph>
               )}
@@ -107,9 +123,9 @@ const Works = () => {
               {/* Tech Badges */}
               <div className="mt-auto flex flex-wrap gap-2">
                 {work.stack.map((tech) => (
-                  <span 
-                    key={tech} 
-                    className="px-3 py-1 text-[10px] font-mono font-semibold uppercase tracking-wider rounded-full border border-primary/20 bg-primary/5 text-primary/80"
+                  <span
+                    key={tech}
+                    className="border-primary/20 bg-primary/5 text-primary/80 rounded-full border px-3 py-1 font-mono text-[10px] font-semibold tracking-wider uppercase"
                   >
                     {tech}
                   </span>
