@@ -4,25 +4,37 @@ import { cn } from "@/lib/utils";
 type HeadingProps = {
   children: React.ReactNode;
   className?: string;
+  underline?: boolean;
 };
 
-const Heading1 = ({ children, className }: HeadingProps) => (
-  <h1
-    className={cn("text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight", className)}
-  >
-    {children}
-  </h1>
+const Heading1 = ({ children, className, underline }: HeadingProps) => (
+  <div className="">
+    <h1
+      className={cn(
+        "text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight",
+        className
+      )}
+    >
+      {children}
+    </h1>
+
+    {underline && <div className="w-40 max-w-1/2 h-2 rounded bg-blue" />}
+  </div>
 );
 
-const Heading2 = ({ children, className }: HeadingProps) => (
-  <h2
-    className={cn(
-      "lg:text-4xl text-2xl md:text-3xl font-semibold tracking-tight",
-      className
-    )}
-  >
-    {children}
-  </h2>
+const Heading2 = ({ children, className, underline }: HeadingProps) => (
+  <div className="">
+    <h2
+      className={cn(
+        "lg:text-4xl text-2xl md:text-3xl font-semibold tracking-tight",
+        className
+      )}
+    >
+      {children}
+    </h2>
+
+    {underline && <div className="w-40 max-w-1/2 h-2 rounded bg-blue" />}
+  </div>
 );
 
 const Heading3 = ({ children, className }: HeadingProps) => (
@@ -42,7 +54,12 @@ type ParagraphProps = {
 };
 
 const Paragraph = ({ children, className }: ParagraphProps) => (
-  <p className={cn("text-lg leading-relaxed text-gray-700 dark:text-gray-300", className)}>
+  <p
+    className={cn(
+      "text-lg leading-relaxed text-poppins text-gray-700 dark:text-gray-400",
+      className
+    )}
+  >
     {children}
   </p>
 );

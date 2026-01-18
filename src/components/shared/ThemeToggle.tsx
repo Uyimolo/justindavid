@@ -1,49 +1,58 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { FaMoon, } from "react-icons/fa6";
-import { cn } from "@/lib/utils";
+import { FaMoon } from "react-icons/fa6";
 import { IoMdSunny } from "react-icons/io";
+import { cn } from "@/lib/utils";
 
 type Theme = "light" | "dark";
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>("light");
+  const [mounted, setMounted] = useState(false);
 
-  // hydrate theme from storage / system
+  // 1. Initial Sync
   useEffect(() => {
+    setMounted(true);
     const stored = localStorage.getItem("theme") as Theme | null;
-
-    if (stored) {
-      setTheme(stored);
-      document.documentElement.classList.toggle("dark", stored === "dark");
-    } else {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setTheme(prefersDark ? "dark" : "light");
-      document.documentElement.classList.toggle("dark", prefersDark);
-    }
+    const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    
+    const initialTheme = stored || (systemPrefersDark ? "dark" : "light");
+    
+    setTheme(initialTheme);
+    // Use the force boolean (true adds, false removes)
+    document.documentElement.classList.toggle("dark", initialTheme === "dark");
   }, []);
 
   const toggleTheme = () => {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
+    
+    // CRITICAL FIX: Explicitly tell the DOM what the state is
     document.documentElement.classList.toggle("dark", next === "dark");
     localStorage.setItem("theme", next);
   };
 
+  // Avoid "Hydration Mismatch" (button showing sun while page is dark)
+  if (!mounted) return <div className="w-15 h-8" />;
+
   return (
     <button
       onClick={toggleTheme}
-      className={cn("relative w-15 rounded-full border flex items-center p-1", theme === "dark" ? "bg-green-500" : "bg-green-500")}
+      className="relative w-15 h-8 rounded-full border flex items-center p-1 bg-green-500 cursor-pointer"
       aria-label="Toggle theme"
     >
       <span
         className={cn(
-          "h-6 w-6 p-1 rounded-full transition-transform bg-white duration-200 flex items-center justify-center",
-          theme === "dark" ? "translate-x-6 " : "translate-x-0"
+          "h-6 w-6 rounded-full transition-all duration-300 bg-white flex items-center justify-center shadow-sm",
+          theme === "dark" ? "translate-x-7" : "translate-x-0"
         )}
       >
-        {theme !== "dark" ? <IoMdSunny className="text-green-500" /> : <FaMoon className="text-green-500" />}
+        {theme === "light" ? (
+          <IoMdSunny className="text-green-500 size-4" />
+        ) : (
+          <FaMoon className="text-green-500 size-4" />
+        )}
       </span>
     </button>
   );

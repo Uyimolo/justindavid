@@ -12,7 +12,7 @@ const Header = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="p-3 flex items-center justify-between  border-black w-full relative">
+    <header className="py-5 fixed z-10 px-5 md:px-10 lg:px-20  flex items-center justify-between  border-black w-full">
       {/* Logo */}
       <Link
         href="/"
@@ -67,7 +67,7 @@ const Header = () => {
 
       {/* Mobile Sidebar */}
       <aside
-        className={`fixed top-0 right-0 h-full space-y-12 w-64 md:hidden bg-white z-50 transform transition-transform duration-300
+        className={`fixed top-0 right-0 h-full space-y-12 w-64 md:hidden bg-white/50 dark:bg-black/50 backdrop-blur-sm border-r border-border z-50 transform transition-transform duration-300
         ${open ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex items-center justify-between p-4">
