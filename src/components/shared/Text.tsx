@@ -11,7 +11,7 @@ const Heading1 = ({ children, className, underline }: HeadingProps) => (
   <div className="">
     <h1
       className={cn(
-        "text-3xl font-bold tracking-tight md:text-4xl lg:text-6xl",
+        "text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl xl:text-6xl",
         className,
       )}
     >

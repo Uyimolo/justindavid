@@ -1,7 +1,8 @@
-import nexamart from "@/src/assets/images/nexamart.vercel.app_.png";
+import nexamart from "@/src/assets/images/nexamart.vercel.app_.webp";
 import jacinthforge from "@/src/assets/images/jacinthforge.webp";
-import zuri from "@/src/assets/images/zuri-team-clone-one.vercel.app_.png";
-import popcornphoria from "@/src/assets/images/popcornphoria.vercel.app.png";
+import zuri from "@/src/assets/images/zuri-team-clone-one.vercel.app_.webp";
+import popcornphoria from "@/src/assets/images/popcornphoria.vercel.app.webp";
+import linksharer from "@/src/assets/images/linksharer.webp";
 import Image from "next/image";
 import Link from "next/link";
 import { BsGithub } from "react-icons/bs";
@@ -16,15 +17,37 @@ const Works = () => {
       tagline: "Lead Frontend Developer • Production LMS",
       description:
         "Architected a comprehensive vocational LMS serving real-world students. Focused on high-performance course delivery and accessibility.",
-      stack: ["Next.js", "TypeScript", "FastApi", "PostgreSQL", "Docker"],
+      stack: ["Next.js", "TypeScript", "FastApi", "PostgreSQL"],
       image: jacinthforge,
       link: "https://jacinthforge.com",
       featured: true,
     },
     {
+      title: "LinkSharer",
+      tagline: "",
+      stack: ["Next.js", "Tailwind", "Firebase", "Motion", "TypeScript"],
+      image: linksharer,
+      link: "https://linksharer.vercel.app/",
+      github: "https://github.com/uyimolo/linksharer",
+      description:
+        "Link share is a full stack link sharing web app. It allows users to create a personal hub for sharing multiple links. This project is built with Nextjs (Typescript), Tailwind and Firebase.",
+      featured: true,
+    },
+    {
+      title: "Popcornphoria",
+      tagline: "Movie trailer app",
+      stack: ["React", "CSS", "TMDB API", "Firebase", "Redux Toolkit"],
+      image: popcornphoria,
+      link: "https://popcornphoria.vercel.app/",
+      github: "https://github.com/uyimolo/popcornphoria",
+      description:
+        "Popcornphoria is a movie trailer web app. It allows users to search for movies and view trailers. This project is built with React, CSS, TMDB API and Firebase.",
+      featured: true,
+    },
+    {
       title: "Nexamart",
       tagline: "E-commerce platform",
-      stack: ["Next.js", "Tailwind", "Firebase"],
+      stack: ["React", "CSS", "Firebase"],
       image: nexamart,
       link: "https://nexamart.vercel.app/",
       github: "https://github.com/uyimolo/nexamart",
@@ -32,18 +55,10 @@ const Works = () => {
     {
       title: "Zuri Team Clone",
       tagline: "Vocational LMS",
-      stack: ["Next.js", "Tailwind", "Firebase"],
+      stack: ["React", "Tailwind", "Motion"],
       image: zuri,
       link: "https://zuri-team-clone-one.vercel.app/",
       github: "https://github.com/uyimolo/zuri-team-clone-one",
-    },
-    {
-      title: "Popcornphoria",
-      tagline: "Movie trailer app",
-      stack: ["Next.js", "Tailwind", "TMDB API"],
-      image: popcornphoria,
-      link: "https://popcornphoria.vercel.app/",
-      github: "https://github.com/uyimolo/popcornphoria",
     },
   ];
 
@@ -115,7 +130,7 @@ const Works = () => {
               </div>
 
               {work.featured && (
-                <Paragraph className="mb-6 line-clamp-2 max-w-3xl opacity-80">
+                <Paragraph className="mb-6 line-clamp-2 max-w-3xl text-sm opacity-80">
                   {work.description}
                 </Paragraph>
               )}

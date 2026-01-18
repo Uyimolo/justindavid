@@ -4,9 +4,7 @@
 
 :root {
   /* Light Mode - Professional Cool Gray/Blue */
-  --background: oklch(
-    96.616% 0.01279 244.482
-  ); /* Soft white with a hint of blue */
+  --background: oklch(100% 0.00011 271.152); /* Soft white with a hint of blue */
   --foreground: oklch(0.25 0.04 240); /* Deep charcoal blue */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.25 0.04 240);
