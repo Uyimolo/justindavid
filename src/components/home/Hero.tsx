@@ -1,6 +1,6 @@
 import { Heading1, Paragraph } from "../shared/Text";
 import Image from "next/image";
-import codeEditor from "@/src/assets/images/code-editor.png";
+import codeEditor from "@/src/assets/images/code-editor.webp";
 import { RiReactjsLine } from "react-icons/ri";
 import { TbBrandNextjs } from "react-icons/tb";
 import {
@@ -19,9 +19,9 @@ function TechIcon({ icon, label }: { icon: React.ReactNode; label: string }) {
         {icon}
       </div>
 
-      <span className="-translate-x-1 text-sm font-medium opacity-0 transition-[opacity,transform] duration-200 ease-out will-change-[opacity,transform] group-hover:translate-x-0 group-hover:opacity-100">
+      {/* <span className="-translate-x-1 text-sm font-medium opacity-0 transition-[opacity,transform] duration-200 ease-out will-change-[opacity,transform] group-hover:translate-x-0 group-hover:opacity-100">
         {label}
-      </span>
+      </span> */}
     </div>
   );
 }
@@ -32,7 +32,7 @@ const TechStackRow = ({ className }: { className?: string }) => {
       <p className="text-muted-foreground text-xs font-semibold tracking-widest uppercase">
         Expertise in
       </p>
-      <div className="md:justify-betwee flex flex-wrap items-center gap-y-2 md:gap-3">
+      <div className="md:justify-betwee flex flex-wrap items-center gap-4 gap-y-2">
         {/* Use your choice of icons (React, Next, TS, Tailwind, etc) */}
         <TechIcon icon={<RiReactjsLine />} label="React" />
         <TechIcon icon={<TbBrandNextjs />} label="Next.js" />
@@ -49,8 +49,8 @@ const TechStackRow = ({ className }: { className?: string }) => {
 const Hero = () => {
   return (
     <section id="home" className="pt-30 lg:min-h-150 lg:pt-40">
-      <div className="flex flex-col items-start gap-10 md:flex-row lg:justify-between lg:gap-20">
-        <div className="max-w-md space-y-6 lg:max-w-1/2">
+      <div className="flex flex-col items-start gap-10 lg:flex-row lg:justify-between lg:gap-20">
+        <div className="max-w-m space-y-6 lg:max-w-1/2">
           <Heading1 className="font-mono">
             I design and{" "}
             <span className="from-primary bg-linear-to-r via-purple-400 to-cyan-400 bg-clip-text text-transparent">
@@ -77,7 +77,7 @@ const Hero = () => {
           />
         </div>
       </div>
-      <TechStackRow className="flex lg:hidden" />
+      <TechStackRow className="flex gap-4 lg:hidden" />
     </section>
   );
 };

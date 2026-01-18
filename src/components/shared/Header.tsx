@@ -85,7 +85,7 @@ const Header = () => {
             {navItems.map((item) => (
               <li key={item}>
                 <Link
-                  href={`#${item}`}
+                  href={`#${item.toLowerCase().replace(" ", "-")}`}
                   onClick={() => setOpen(false)}
                   className="text-lg"
                 >
