@@ -9,7 +9,7 @@ const About = () => {
     "transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:border-primary/30";
 
   return (
-    <section id="about-me">
+    <section id="about">
       {/* Header */}
       <div className="mb-16 flex flex-col">
         <div className="mb-2 flex items-center gap-2">

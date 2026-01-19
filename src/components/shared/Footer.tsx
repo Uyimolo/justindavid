@@ -49,7 +49,7 @@ const Footer = () => {
               <div className="aspect-square w-1 rounded-full bg-black dark:bg-white" />
               <p>David</p>
             </Link>
-            <p className="text-muted-foreground mt-6 max-w-xs text-sm leading-relaxed">
+            <p className="mt-6 max-w-xs text-sm leading-relaxed">
               Building high-performance, accessible, and beautiful web
               interfaces for forward-thinking brands and startups.
             </p>
@@ -85,7 +85,7 @@ const Footer = () => {
                 <li key={item}>
                   <Link
                     href={`#${item}`}
-                    className="text-muted-foreground hover:text-foreground group flex items-center gap-1 transition-colors"
+                    className="hover:text-foreground group flex w-fit items-center gap-1 transition-colors"
                   >
                     {item}{" "}
                     <LuArrowUpRight className="-translate-y-1 opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100" />
@@ -101,9 +101,7 @@ const Footer = () => {
               Contact
             </h3>
             <div className="space-y-4 text-sm font-medium">
-              <p className="text-muted-foreground">
-                Benin City, Nigeria — Available Worldwide
-              </p>
+              <p className="">Benin City, Nigeria — Available Worldwide</p>
               <Link
                 href="mailto:uyijustindavid@gmail.com"
                 className="hover:text-primary decoration-primary/30 block w-fit font-bold underline underline-offset-8 transition-colors"
@@ -116,7 +114,7 @@ const Footer = () => {
 
         {/* 3. COPYRIGHT BAR */}
         <div className="border-border mt-20 flex flex-col items-center justify-between border-t pt-8 md:flex-row">
-          <p className="text-muted-foreground text-xs">
+          <p className="text-xs">
             © {currentYear} Justin David. All rights reserved.
           </p>
           <p className="text-muted-foreground/80 mt-4 font-mono text-[10px] tracking-widest uppercase md:mt-0">
