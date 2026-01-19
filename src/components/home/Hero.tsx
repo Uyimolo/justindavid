@@ -11,6 +11,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 function TechIcon({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
@@ -58,14 +59,15 @@ const Hero = () => {
             </span>{" "}
             that feel effortless to use
           </Heading1>
-          <Paragraph className="max-w-lg">
-            I am a frontend developer helping businesses turn ideas into fast,
-            reliable, and thoughtfully crafted websites.
-          </Paragraph>
+          <div className="space-y-10">
+            <Paragraph className="max-w-lg">
+              I am a frontend developer helping businesses turn ideas into fast,
+              reliable, and thoughtfully crafted websites.
+            </Paragraph>
 
-          <button className="mt-6 rounded border border-blue-600 px-6 py-2 dark:border-blue-400">
-            Start a project
-          </button>
+            <Link href="mailto:uyijustindavid@gmail.com">
+            <button className="rounded border border-blue-600 px-6 py-2 transition-all duration-300 hover:scale-105 dark:border-blue-400">Start a project </button></Link>
+          </div>
           <TechStackRow className="hidden lg:flex" />
         </div>
 
@@ -73,7 +75,7 @@ const Hero = () => {
           <Image
             src={codeEditor}
             className="w-full rounded-xl border-5"
-            alt="me"
+            alt="Code editor Mockup"
           />
         </div>
       </div>

@@ -6,7 +6,38 @@ import { FiMenu, FiX } from "react-icons/fi";
 import ThemeToggle from "./ThemeToggle";
 import Logo from "./Logo";
 
-const navItems = ["Home", "About me", "Portfolio", "Contact"];
+// const navItems = ["Home", "About me", "Portfolio", "Contact"];
+const navItems = [
+  {
+    name: "Home",
+    href: "#home",
+    description:
+      "Navigate to homepage - Justin David, Frontend Developer specializing in React, Next.js, and TypeScript",
+    ariaLabel: "Go to home section",
+  },
+  {
+    name: "About",
+    href: "#about",
+    description:
+      "Learn about Justin David's background, skills, and experience building high-performance web applications",
+    ariaLabel:
+      "Learn more about my background and experience as a Frontend Developer",
+  },
+  {
+    name: "Portfolio",
+    href: "#portfolio",
+    description:
+      "Explore portfolio projects including Jacinth Forge LMS, e-commerce platforms, and web applications built with React, Next.js, TypeScript, and Tailwind CSS",
+    ariaLabel: "View my portfolio of React, Next.js, and fullstack projects",
+  },
+  {
+    name: "Contact",
+    href: "#contact",
+    description:
+      "Get in touch with Justin David for frontend development projects and collaborations",
+    ariaLabel: "Contact me for project inquiries and collaborations",
+  },
+];
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -16,7 +47,7 @@ const Header = () => {
       {/* Logo */}
       <Link
         href="/"
-        className="text-md relative flex w-fit items-center space-x-px text-black dark:text-white"
+        className="text-md relative flex w-fit items-center space-x-px font-semibold text-black dark:text-white"
       >
         <Logo />
         <p>Justin</p>
@@ -28,12 +59,14 @@ const Header = () => {
       <nav className="hidden md:block">
         <ul className="flex items-center gap-6">
           {navItems.map((item) => (
-            <li key={item}>
+            <li key={item.name}>
               <Link
-                href={`#${item.toLowerCase().replace(" ", "-")}`}
+                href={item.href}
                 className="hover:underline"
+                aria-label={item.ariaLabel}
+                title={item.description}
               >
-                {item}
+                {item.name}
               </Link>
             </li>
           ))}
@@ -68,7 +101,7 @@ const Header = () => {
 
       {/* Mobile Sidebar */}
       <aside
-        className={`border-border fixed top-0 right-0 z-50 h-full w-64 transform space-y-12 border-r bg-white/50 backdrop-blur-sm transition-transform duration-300 md:hidden dark:bg-black/50 ${open ? "translate-x-0" : "translate-x-full"}`}
+        className={`border-border fixed top-0 right-0 bottom-0 z-50 h-full w-64 transform space-y-12 border-r bg-white/80 backdrop-blur-md transition-transform duration-300 md:hidden dark:bg-black/80 ${open ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex items-center justify-between p-4">
           <button
@@ -83,13 +116,15 @@ const Header = () => {
         <nav className="p-4">
           <ul className="flex flex-col gap-4">
             {navItems.map((item) => (
-              <li key={item}>
+              <li key={item.name}>
                 <Link
-                  href={`#${item.toLowerCase().replace(" ", "-")}`}
+                  href={item.href}
                   onClick={() => setOpen(false)}
                   className="text-lg"
+                  aria-label={item.ariaLabel}
+                  title={item.description}
                 >
-                  {item}
+                  {item.name}
                 </Link>
               </li>
             ))}
