@@ -24,7 +24,7 @@ const Works = () => {
     },
     {
       title: "LinkSharer",
-      tagline: "",
+      tagline: "Link sharing web app",
       stack: ["Next.js", "Tailwind", "Firebase", "Motion", "TypeScript"],
       image: linksharer,
       link: "https://linksharer.vercel.app/",
@@ -69,7 +69,7 @@ const Works = () => {
           02. Selected Works
         </span>
         <Heading2>Portfolio Showcase</Heading2>
-        <Paragraph className="max-w-2xl opacity-80">
+        <Paragraph className="max-w-2xl">
           A curated selection of digital experiences, ranging from full-scale
           production systems to experimental web applications.
         </Paragraph>
@@ -96,6 +96,7 @@ const Works = () => {
               <div className="bg-primary/20 absolute inset-0 flex items-center justify-center gap-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                 <Link
                   href={work.link}
+                  aria-label={`External link for ${work.title}`}
                   target="_blank"
                   className="rounded-full bg-white p-4 text-black transition-transform hover:scale-110"
                 >
@@ -120,6 +121,7 @@ const Works = () => {
                   {work.github && (
                     <Link
                       href={work.github}
+                      aria-label={`Github link for ${work.title}`}
                       target="_blank"
                       className="border-border hover:bg-foreground hover:text-background rounded-full border p-2 transition-all"
                     >
@@ -130,7 +132,7 @@ const Works = () => {
               </div>
 
               {work.featured && (
-                <Paragraph className="mb-6 line-clamp-2 max-w-3xl text-sm opacity-80">
+                <Paragraph className="mb-6 line-clamp-2 max-w-3xl text-sm">
                   {work.description}
                 </Paragraph>
               )}

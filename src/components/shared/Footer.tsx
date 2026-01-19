@@ -11,11 +11,8 @@ const Footer = () => {
   return (
     <footer className="border-border bg-card/20 mx-5 mt-20 mb-5 rounded-4xl border px-5 shadow-xl backdrop-blur-[1px] lg:px-10">
       {/* 1. FINAL CTA SECTION */}
-      <div
-        id="contact"
-        className="group container mx-auto py-6 md:px-4 md:py-20"
-      >
-        <div className="dark:bg-primary relative overflow-hidden rounded-3xl bg-[#222222] px-8 py-16 text-center md:px-16">
+      <div id="contact" className="container mx-auto py-6 md:px-4 md:py-20">
+        <div className="dark:bg-primar relative overflow-hidden rounded-3xl bg-[#222222] px-8 py-16 text-center md:px-16 dark:bg-[#f5f5f5]">
           {/* Decorative Background Circles */}
           <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-white/30 blur-3xl" />
           <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-white/20 blur-3xl dark:bg-white/30" />
@@ -26,12 +23,12 @@ const Footer = () => {
               amazing together?
             </h2>
             <p className="text-primary-foreground/80 mb-10 max-w-lg md:text-lg">
-              Currently accepting new projects and collaborations. Let&Apos;s
+              Currently accepting new projects and collaborations. Let&apos;s
               turn your vision into a high-performance web reality.
             </p>
             <Link
               href="mailto:uyijustindavid@gmail.com"
-              className="bg-primary-foreground text-primary flex items-center gap-2 rounded-full px-8 py-4 font-bold transition-all group-hover:scale-105 hover:scale-110"
+              className="bg-primary-foreground group text-primary flex items-center gap-2 rounded-full px-8 py-4 font-bold transition-all duration-300 ease-in-out group-hover:scale-105 hover:scale-110"
             >
               Get in Touch{" "}
               <LuMail className="transition-transform group-hover:-rotate-12" />
@@ -45,11 +42,11 @@ const Footer = () => {
           <div className="md:col-span-5">
             <Link
               href="/"
-              className="flex items-center space-x-px text-xl font-semibold"
+              className="text-md relative flex w-fit items-center space-x-px font-semibold text-black dark:text-white"
             >
               <Logo />
-              <p className="ml-2">Justin</p>
-              <div className="mx-1 aspect-square w-1 rounded-full bg-black dark:bg-white" />
+              <p>Justin</p>
+              <div className="aspect-square w-1 rounded-full bg-black dark:bg-white" />
               <p>David</p>
             </Link>
             <p className="text-muted-foreground mt-6 max-w-xs text-sm leading-relaxed">
@@ -80,9 +77,9 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="md:col-span-3">
-            <h4 className="text-primary mb-6 font-mono text-xs font-bold tracking-widest uppercase">
+            <h3 className="text-primary mb-6 font-mono text-xs font-bold tracking-widest uppercase">
               Navigation
-            </h4>
+            </h3>
             <ul className="space-y-4 text-sm font-medium">
               {["Home", "About me", "Portfolio", "Contact"].map((item) => (
                 <li key={item}>
@@ -100,9 +97,9 @@ const Footer = () => {
 
           {/* Contact Details */}
           <div className="md:col-span-4">
-            <h4 className="text-primary mb-6 font-mono text-xs font-bold tracking-widest uppercase">
+            <h3 className="text-primary mb-6 font-mono text-xs font-bold tracking-widest uppercase">
               Contact
-            </h4>
+            </h3>
             <div className="space-y-4 text-sm font-medium">
               <p className="text-muted-foreground">
                 Benin City, Nigeria — Available Worldwide
@@ -122,9 +119,9 @@ const Footer = () => {
           <p className="text-muted-foreground text-xs">
             © {currentYear} Justin David. All rights reserved.
           </p>
-          <p className="text-muted-foreground/50 mt-4 font-mono text-[10px] tracking-widest uppercase md:mt-0">
+          <p className="text-muted-foreground/80 mt-4 font-mono text-[10px] tracking-widest uppercase md:mt-0">
             Designed & Built with{" "}
-            <span className="text-primary font-bold">Next.js 15</span>
+            <span className="text-primary font-bold">Next.js</span>
           </p>
         </div>
       </div>

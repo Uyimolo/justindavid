@@ -56,7 +56,7 @@ type ParagraphProps = {
 const Paragraph = ({ children, className }: ParagraphProps) => (
   <p
     className={cn(
-      "text-poppins text-lg leading-relaxed text-gray-700 dark:text-gray-400",
+      "text-poppins text-lg leading-relaxed text-gray-700 dark:text-gray-200",
       className,
     )}
   >
