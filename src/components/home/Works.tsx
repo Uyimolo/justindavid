@@ -47,18 +47,24 @@ const Works = () => {
     {
       title: "Nexamart",
       tagline: "E-commerce platform",
-      stack: ["React", "CSS", "Firebase"],
+      stack: ["React", "CSS", "Dummy JSON API"],
       image: nexamart,
       link: "https://nexamart.vercel.app/",
       github: "https://github.com/uyimolo/nexamart",
+      description:
+        "Nexamart is an e-commerce platform. It allows users to browse and purchase mock products. This project is built with React, CSS and Dummy JSON API.",
+      featured: true,
     },
     {
       title: "Zuri Team Clone",
-      tagline: "Vocational LMS",
-      stack: ["React", "Tailwind", "Motion"],
+      tagline: "Pixel-Perfect Multi-Page Replication",
+      stack: ["React", "Tailwind CSS", "Framer Motion"],
       image: zuri,
       link: "https://zuri-team-clone-one.vercel.app/",
       github: "https://github.com/uyimolo/zuri-team-clone-one",
+      description:
+        "A high-fidelity replication of five core Zuri Team landing pages. This project demonstrates my ability to translate complex design systems into clean code, featuring orchestrated reveal animations and a fully responsive architecture that mirrors production-grade standards.",
+      featured: false,
     },
   ];
 
@@ -131,18 +137,16 @@ const Works = () => {
                 </div>
               </div>
 
-              {work.featured && (
-                <Paragraph className="mb-6 line-clamp-2 max-w-3xl text-sm">
-                  {work.description}
-                </Paragraph>
-              )}
+              <Paragraph className="mb-6 line-clamp-3 max-w-3xl text-sm">
+                {work.description}
+              </Paragraph>
 
               {/* Tech Badges */}
               <div className="mt-auto flex flex-wrap gap-2">
                 {work.stack.map((tech) => (
                   <span
                     key={tech}
-                    className="border-primary/20 bg-primary/5 text-primary/80 rounded-full border px-3 py-1 font-mono text-[10px] font-semibold tracking-wider uppercase"
+                    className="border-primary/20 bg-primary/5 text-primary rounded-full border px-3 py-1 font-mono text-[10px] font-semibold tracking-wider uppercase"
                   >
                     {tech}
                   </span>

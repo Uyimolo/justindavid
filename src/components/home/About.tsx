@@ -99,7 +99,7 @@ const About = () => {
           <div className="z-10 space-y-1 lg:space-y-2">
             <p className="text-sm leading-relaxed opacity-85 md:text-xs lg:text-sm">
               When I&apos;m not debugging, I&apos;m likely exploring new design
-              trends or automating workflows. I never stop asking "why?"
+              trends or automating workflows. I never stop asking &quot;why?&quot;
             </p>
             <div className="flex flex-wrap gap-2 pt-2">
               {["Design", "Music", "Arts"].map((hobby) => (
