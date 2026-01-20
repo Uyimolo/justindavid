@@ -97,6 +97,7 @@ const Works = () => {
                 alt={work.title}
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 placeholder="blur"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               {/* Overlay on hover */}
               <div className="bg-primary/20 absolute inset-0 flex items-center justify-center gap-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
