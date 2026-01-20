@@ -46,6 +46,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://justindavid.vercel.app",
+    // metadataBase: new URL("https://justindavid.vercel.app"),
     title: "Justin David | Frontend Developer",
     description:
       "I design and build web interfaces that feel effortless to use",

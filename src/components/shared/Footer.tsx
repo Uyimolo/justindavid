@@ -4,6 +4,7 @@ import Link from "next/link";
 import Logo from "./Logo";
 import { BsGithub, BsLinkedin, BsTwitterX } from "react-icons/bs";
 import { LuArrowUpRight, LuMail } from "react-icons/lu";
+import { navItems } from "./Header";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -81,13 +82,14 @@ const Footer = () => {
               Navigation
             </h3>
             <ul className="space-y-4 text-sm font-medium">
-              {["Home", "About me", "Portfolio", "Contact"].map((item) => (
-                <li key={item}>
+              {navItems.map((item) => (
+                <li key={item.name}>
                   <Link
-                    href={`#${item}`}
+                    href={`#${item.href}`}
                     className="hover:text-foreground group flex w-fit items-center gap-1 transition-colors"
+                    aria-label={item.ariaLabel}
                   >
-                    {item}{" "}
+                    {item.name}{" "}
                     <LuArrowUpRight className="-translate-y-1 opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100" />
                   </Link>
                 </li>

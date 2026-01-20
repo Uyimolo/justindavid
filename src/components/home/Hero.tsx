@@ -1,6 +1,6 @@
 import { Heading1, Paragraph } from "../shared/Text";
 import Image from "next/image";
-import codeEditor from "@/src/assets/images/code-editor.webp";
+import codeEditor from "@/src/assets/images/code-editor.png";
 import { RiReactjsLine } from "react-icons/ri";
 import { TbBrandNextjs } from "react-icons/tb";
 import {
@@ -12,17 +12,14 @@ import {
 } from "react-icons/si";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { DiFirebase } from "react-icons/di";
 
-function TechIcon({ icon, label }: { icon: React.ReactNode; label: string }) {
+function TechIcon({ icon }: { icon: React.ReactNode }) {
   return (
     <div className="group text-muted-foreground hover:text-primary flex items-center gap-2 transition-colors duration-200">
       <div className="text-2xl opacity-70 transition-opacity duration-200 group-hover:opacity-100">
         {icon}
       </div>
-
-      {/* <span className="-translate-x-1 text-sm font-medium opacity-0 transition-[opacity,transform] duration-200 ease-out will-change-[opacity,transform] group-hover:translate-x-0 group-hover:opacity-100">
-        {label}
-      </span> */}
     </div>
   );
 }
@@ -35,13 +32,14 @@ const TechStackRow = ({ className }: { className?: string }) => {
       </p>
       <div className="md:justify-betwee flex flex-wrap items-center gap-4 gap-y-2">
         {/* Use your choice of icons (React, Next, TS, Tailwind, etc) */}
-        <TechIcon icon={<RiReactjsLine />} label="React" />
-        <TechIcon icon={<TbBrandNextjs />} label="Next.js" />
-        <TechIcon icon={<SiTypescript />} label="TypeScript" />
-        <TechIcon icon={<SiTailwindcss />} label="Tailwind" />
-        <TechIcon icon={<SiFigma />} label="Figma" />
-        <TechIcon icon={<SiFastify />} label="Fastify" />
-        <TechIcon icon={<SiPrisma />} label="Prisma" />
+        <TechIcon icon={<RiReactjsLine title="React" />} />
+        <TechIcon icon={<TbBrandNextjs title="Next.js" />} />
+        <TechIcon icon={<SiTypescript title="TypeScript" />} />
+        <TechIcon icon={<SiTailwindcss title="Tailwind" />} />
+        <TechIcon icon={<SiFigma title="Figma" />} />
+        <TechIcon icon={<SiFastify title="Fastify" />} />
+        <TechIcon icon={<SiPrisma title="Prisma" />} />
+        <TechIcon icon={<DiFirebase title="Firebase" />} />
       </div>
     </div>
   );
@@ -66,7 +64,10 @@ const Hero = () => {
             </Paragraph>
 
             <Link href="mailto:uyijustindavid@gmail.com">
-            <button className="rounded border border-blue-600 px-6 py-2 transition-all duration-300 hover:scale-105 dark:border-blue-400">Start a project </button></Link>
+              <button className="rounded border border-blue-600 px-6 py-2 transition-all duration-300 hover:scale-105 dark:border-blue-400">
+                Start a project{" "}
+              </button>
+            </Link>
           </div>
           <TechStackRow className="hidden lg:flex" />
         </div>
