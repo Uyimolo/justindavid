@@ -77,6 +77,7 @@ const Hero = () => {
             src={codeEditor}
             className="w-full rounded-xl border-5"
             alt="Code editor Mockup"
+            priority
           />
         </div>
       </div>
