@@ -23,7 +23,7 @@ const Footer = () => {
               Ready to build something <br className="hidden md:block" />{" "}
               amazing together?
             </h2>
-            <p className="text-primary-foreground/80 mb-10 max-w-lg md:text-lg">
+            <p className="text-primary-foreground/90 mb-10 max-w-lg md:text-lg">
               Currently accepting new projects and collaborations. Let&apos;s
               turn your vision into a high-performance web reality.
             </p>
@@ -58,18 +58,21 @@ const Footer = () => {
               <Link
                 href="https://github.com/uyimolo"
                 className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="Visit my GitHub profile"
               >
                 <BsGithub size={20} />
               </Link>
               <Link
                 href="https://www.linkedin.com/in/uyijustindavid/"
                 className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="Visit my LinkedIn profile"
               >
                 <BsLinkedin size={20} />
               </Link>
               <Link
                 href="https://twitter.com/codefrontline"
                 className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="Visit my Twitter profile"
               >
                 <BsTwitterX size={20} />
               </Link>
@@ -119,7 +122,7 @@ const Footer = () => {
           <p className="text-xs">
             © {currentYear} Justin David. All rights reserved.
           </p>
-          <p className="text-muted-foreground/80 mt-4 font-mono text-[10px] tracking-widest uppercase md:mt-0">
+          <p className="text-forground mt-4 font-mono text-[10px] tracking-widest uppercase md:mt-0">
             Designed & Built with{" "}
             <span className="text-primary font-bold">Next.js</span>
           </p>

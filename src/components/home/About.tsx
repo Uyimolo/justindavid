@@ -61,11 +61,9 @@ const About = () => {
             </h3>
             <p className="max-w-xl text-sm leading-relaxed lg:text-base">
               I specialize in the{" "}
-              <span className="text-primary font-semibold">
-                React ecosystem
-              </span>
-              . My focus is on writing clean, scalable code and creating user
-              interfaces that don&apos;t just look good, but perform flawlessly.
+              <span className="font-semibold">React ecosystem</span>. My focus
+              is on writing clean, scalable code and creating user interfaces
+              that don&apos;t just look good, but perform flawlessly.
             </p>
           </div>
         </div>
@@ -99,7 +97,8 @@ const About = () => {
           <div className="z-10 space-y-1 lg:space-y-2">
             <p className="text-sm leading-relaxed opacity-85 md:text-xs lg:text-sm">
               When I&apos;m not debugging, I&apos;m likely exploring new design
-              trends or automating workflows. I never stop asking &quot;why?&quot;
+              trends or automating workflows. I never stop asking
+              &quot;why?&quot;
             </p>
             <div className="flex flex-wrap gap-2 pt-2">
               {["Design", "Music", "Arts"].map((hobby) => (

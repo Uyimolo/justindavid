@@ -4,11 +4,11 @@ import Works from "./Works";
 
 const LandingPage = () => {
   return (
-    <div className="space-y-20 md:space-y-40 max-w-[1700px] mx-auto px-5 md:px-10 lg:px-20">
+    <main className="space-y-20 md:space-y-40 max-w-[1700px] mx-auto px-5 md:px-10 lg:px-20">
       <Hero />
       <About />
       <Works />
-    </div>
+    </main>
   );
 };
 
