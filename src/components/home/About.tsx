@@ -1,4 +1,3 @@
-"use client";
 import { FaRocket, FaLightbulb } from "react-icons/fa";
 import uyi from "@/src/assets/images/Uyi.webp";
 import Image from "next/image";
@@ -49,9 +48,9 @@ const About = () => {
         <div
           className={`border-border bg-accent relative row-span-2 flex flex-col justify-between overflow-hidden rounded-3xl border p-6 backdrop-blur-md md:col-span-8 md:row-span-2 xl:p-8 ${cardHoverBase}`}
         >
-          <div className="pointer-events-none absolute -top-10 -right-10 text-4xl font-bold text-blue-500/5 select-none md:text-9xl">
+          {/* <div className="pointer-events-none absolute -top-10 -right-10 text-4xl font-bold text-blue-500/5 select-none md:text-9xl">
             STACK
-          </div>
+          </div> */}
           <div className="z-10">
             <div className="text-primary mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10 transition-transform group-hover:rotate-12">
               <FaRocket />

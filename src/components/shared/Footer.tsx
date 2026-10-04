@@ -1,10 +1,8 @@
-"use client";
-
 import Link from "next/link";
 import Logo from "./Logo";
 import { BsGithub, BsLinkedin, BsTwitterX } from "react-icons/bs";
 import { LuArrowUpRight, LuMail } from "react-icons/lu";
-import { navItems } from "./Header";
+import { navItems } from "@/src/lib/nav";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -23,7 +21,7 @@ const Footer = () => {
               Ready to build something <br className="hidden md:block" />{" "}
               amazing together?
             </h2>
-            <p className="text-primary-foreground/90 mb-10 max-w-lg md:text-lg">
+            <p className="text-gray-200 mb-10 max-w-lg md:text-lg">
               Currently accepting new projects and collaborations. Let&apos;s
               turn your vision into a high-performance web reality.
             </p>
@@ -122,7 +120,7 @@ const Footer = () => {
           <p className="text-xs">
             © {currentYear} Justin David. All rights reserved.
           </p>
-          <p className="text-forground mt-4 font-mono text-[10px] tracking-widest uppercase md:mt-0">
+          <p className="text-foreground mt-4 font-mono text-[10px] tracking-widest uppercase md:mt-0">
             Designed & Built with{" "}
             <span className="text-primary font-bold">Next.js</span>
           </p>

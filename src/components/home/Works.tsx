@@ -1,164 +1,131 @@
-import nexamart from "@/src/assets/images/nexamart.vercel.app_.webp";
-import jacinthforge from "@/src/assets/images/jacinthforge.webp";
-import zuri from "@/src/assets/images/zuri-team-clone-one.vercel.app_.webp";
-import popcornphoria from "@/src/assets/images/popcornphoria.vercel.app.webp";
-import linksharer from "@/src/assets/images/linksharer.webp";
+// src/components/home/Works.tsx
 import Image from "next/image";
 import Link from "next/link";
-import { BsGithub } from "react-icons/bs";
-import { LuExternalLink } from "react-icons/lu";
+import { ArrowUpRight } from "lucide-react";
 import { Heading2, Heading3, Paragraph } from "../shared/Text";
+import { getFeaturedProjects, type Project } from "@/src/lib/works";
 import { cn } from "@/lib/utils";
 
 const Works = () => {
-  const works = [
-    {
-      title: "Jacinth Forge",
-      tagline: "Lead Frontend Developer • Production LMS",
-      description:
-        "Architected a comprehensive vocational LMS serving real-world students. Focused on high-performance course delivery and accessibility.",
-      stack: ["Next.js", "TypeScript", "FastApi", "PostgreSQL"],
-      image: jacinthforge,
-      link: "https://jacinthforge.com",
-      featured: true,
-    },
-    {
-      title: "LinkSharer",
-      tagline: "Link sharing web app",
-      stack: ["Next.js", "Tailwind", "Firebase", "Motion", "TypeScript"],
-      image: linksharer,
-      link: "https://linksharer.vercel.app/",
-      github: "https://github.com/uyimolo/linksharer",
-      description:
-        "Link share is a full stack link sharing web app. It allows users to create a personal hub for sharing multiple links. This project is built with Nextjs (Typescript), Tailwind and Firebase.",
-      featured: true,
-    },
-    {
-      title: "Popcornphoria",
-      tagline: "Movie trailer app",
-      stack: ["React", "CSS", "TMDB API", "Firebase", "Redux Toolkit"],
-      image: popcornphoria,
-      link: "https://popcornphoria.vercel.app/",
-      github: "https://github.com/uyimolo/popcornphoria",
-      description:
-        "Popcornphoria is a movie trailer web app. It allows users to search for movies and view trailers. This project is built with React, CSS, TMDB API and Firebase.",
-      featured: true,
-    },
-    {
-      title: "Nexamart",
-      tagline: "E-commerce platform",
-      stack: ["React", "CSS", "Dummy JSON API"],
-      image: nexamart,
-      link: "https://nexamart.vercel.app/",
-      github: "https://github.com/uyimolo/nexamart",
-      description:
-        "Nexamart is an e-commerce platform. It allows users to browse and purchase mock products. This project is built with React, CSS and Dummy JSON API.",
-      featured: true,
-    },
-    {
-      title: "Zuri Team Clone",
-      tagline: "Pixel-Perfect Multi-Page Replication",
-      stack: ["React", "Tailwind CSS", "Framer Motion"],
-      image: zuri,
-      link: "https://zuri-team-clone-one.vercel.app/",
-      github: "https://github.com/uyimolo/zuri-team-clone-one",
-      description:
-        "A high-fidelity replication of five core Zuri Team landing pages. This project demonstrates my ability to translate complex design systems into clean code, featuring orchestrated reveal animations and a fully responsive architecture that mirrors production-grade standards.",
-      featured: false,
-    },
-  ];
+  const featured = getFeaturedProjects();
 
   return (
     <section id="portfolio" className="space-y-16 py-24">
       <div className="flex flex-col items-start gap-3">
         <span className="text-primary font-mono text-sm tracking-widest uppercase">
-          02. Selected Works
+          02. Selected Work
         </span>
-        <Heading2>Portfolio Showcase</Heading2>
+        <Heading2>Case Studies</Heading2>
         <Paragraph className="max-w-2xl">
-          A curated selection of digital experiences, ranging from full-scale
-          production systems to experimental web applications.
+          Deep dives into the projects I&apos;ve built — the constraints, the
+          decisions, and what I&apos;d do differently.
         </Paragraph>
       </div>
 
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2">
-        {works.map((work) => (
-          <div
-            key={work.title}
-            className={cn(
-              "group border-border bg-card/30 relative flex flex-col overflow-hidden rounded-3xl border shadow-xl backdrop-blur-[1px] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl",
-              // work.featured && "md:col-span-2 bg-linear-to-br from-primary/10 to-transparent"
-            )}
-          >
-            {/* Project Image Area */}
-            <div className="relative m-3 aspect-video overflow-hidden rounded-2xl md:aspect-auto">
-              <Image
-                src={work.image}
-                alt={work.title}
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                placeholder="blur"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-              {/* Overlay on hover */}
-              <div className="bg-primary/20 absolute inset-0 flex items-center justify-center gap-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                <Link
-                  href={work.link}
-                  aria-label={`External link for ${work.title}`}
-                  target="_blank"
-                  className="rounded-full bg-white p-4 text-black transition-transform hover:scale-110"
-                >
-                  <LuExternalLink size={24} />
-                </Link>
-              </div>
-            </div>
-
-            {/* Project Info */}
-            <div className="flex grow flex-col p-8 pt-4">
-              <div className="mb-4 flex items-center justify-between">
-                <div>
-                  <Heading3 className="group-hover:text-primary text-2xl font-bold transition-colors">
-                    {work.title}
-                  </Heading3>
-                  <p className="text-primary mt-1 text-sm font-medium tracking-tight">
-                    {work.tagline}
-                  </p>
-                </div>
-
-                <div className="flex gap-3">
-                  {work.github && (
-                    <Link
-                      href={work.github}
-                      aria-label={`Github link for ${work.title}`}
-                      target="_blank"
-                      className="border-border hover:bg-foreground hover:text-background rounded-full border p-2 transition-all"
-                    >
-                      <BsGithub size={20} />
-                    </Link>
-                  )}
-                </div>
-              </div>
-
-              <Paragraph className="mb-6 line-clamp-3 max-w-3xl text-sm">
-                {work.description}
-              </Paragraph>
-
-              {/* Tech Badges */}
-              <div className="mt-auto flex flex-wrap gap-2">
-                {work.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="border-primary/20 bg-primary/5 text-primary rounded-full border px-3 py-1 font-mono text-[10px] font-semibold tracking-wider uppercase"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
+      <div className="space-y-6 md:space-y-10">
+        {featured.map((work, i) => (
+          <FeaturedWorkCard
+            key={work.slug}
+            work={work}
+            reverse={i % 2 === 1}
+          />
         ))}
+      </div>
+
+      <div className="flex justify-center pt-4">
+        <Link
+          href="/works"
+          className="group border-border hover:border-primary/40 inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-medium transition-all"
+        >
+          View all projects
+          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </Link>
       </div>
     </section>
   );
 };
+
+function FeaturedWorkCard({
+  work,
+  reverse,
+}: {
+  work: Project;
+  reverse: boolean;
+}) {
+  return (
+    <Link
+      href={`/works/${work.slug}`}
+      className="group border-border bg-card/30 hover:border-primary/30 grid grid-cols-1 gap-3 overflow-hidden rounded-3xl border p-3 shadow-xl backdrop-blur-[1px] transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl lg:grid-cols-2 lg:gap-5 lg:p-5"
+    >
+      {/* Image — inset by the card's padding, so the whole card reads as a frame */}
+      <div
+        className={cn(
+          "relative aspect-video overflow-hidden rounded-2xl lg:aspect-auto lg:min-h-[420px]",
+          reverse && "lg:order-2",
+        )}
+      >
+        <Image
+          src={work.image}
+          alt={work.title}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          placeholder="blur"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
+      </div>
+
+      {/* Info */}
+      <div
+        className={cn(
+          "flex flex-col justify-center px-3 pb-2 lg:px-6 lg:py-8",
+          reverse && "lg:order-1",
+        )}
+      >
+        {/* Meta badges */}
+        <div className="mb-3 flex flex-wrap items-center gap-2 lg:mb-5 lg:gap-3">
+          <span className="border-primary/30 bg-primary/5 text-primary rounded-full border px-2.5 py-0.5 font-mono text-[10px] font-semibold tracking-widest uppercase">
+            Case Study
+          </span>
+          <span className="text-muted-foreground font-mono text-[10px] tracking-widest uppercase">
+            {work.year}
+            {work.role && (
+              <span className="hidden lg:inline"> · {work.role}</span>
+            )}
+          </span>
+        </div>
+
+        <Heading3 className="group-hover:text-primary mb-2 text-2xl font-bold tracking-tight transition-colors lg:mb-3 lg:text-4xl">
+          {work.title}
+        </Heading3>
+
+        <p className="text-primary text-sm font-medium tracking-tight lg:mb-5">
+          {work.tagline}
+        </p>
+
+        {/* Description + stack: hidden on mobile to keep the card compact */}
+        <Paragraph className="mt-5 mb-0 line-clamp-4 text-sm leading-relaxed lg:mb-8 lg:max-w-xl">
+          {work.description}
+        </Paragraph>
+
+        <div className="mt-5 mb-0 hidden  flex-wrap gap-2 lg:mb-8 lg:flex">
+          {work.stack.slice(0, 5).map((tech) => (
+            <span
+              key={tech}
+              className="border-primary/20 bg-primary/5 text-primary rounded-full border px-3 py-1 font-mono text-[10px] font-semibold tracking-wider uppercase"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        {/* CTA — the only thing at the bottom on mobile */}
+        <div className="text-primary mt-4 inline-flex items-center gap-2 text-sm font-medium lg:mt-auto">
+          Read case study
+          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+        </div>
+      </div>
+    </Link>
+  );
+}
 
 export default Works;
