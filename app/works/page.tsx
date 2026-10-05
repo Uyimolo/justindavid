@@ -6,6 +6,7 @@ import { BsGithub } from "react-icons/bs";
 import { LuExternalLink } from "react-icons/lu";
 import { Heading1, Heading3, Paragraph } from "@/src/components/shared/Text";
 import { works, type Project } from "@/src/lib/works";
+import { caseStudies } from "@/src/lib/case-studies";
 
 export const metadata: Metadata = {
   title: "All Projects | Justin David",
@@ -34,18 +35,26 @@ const statusBadge: Record<
   },
 };
 
+const numberOfCaseStudies = caseStudies.length;
+
+const ONES = ['zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine'];
+
+function toWord(n: number): string {
+  if (n < 10) return ONES[n];
+  return String(n); // fallback for larger numbers
+}
+
 export default function WorksPage() {
   return (
-    <main className="mx-auto max-w-[1700px] px-5 pt-32 pb-24 md:px-10 lg:px-20">
+    <main className="mx-auto max-w-425 px-5 pt-32 pb-24 md:px-10 lg:px-20">
       <div className="mb-16 flex flex-col gap-3">
         <span className="text-primary font-mono text-sm tracking-widest uppercase">
           All Projects
         </span>
         <Heading1>Portfolio</Heading1>
         <Paragraph className="max-w-2xl">
-          Production systems, client work, and experimental web applications.
-          Two have full case studies — the rest link straight to the live
-          sites.
+          {`Production systems, client work, and experimental web applications.
+           ${numberOfCaseStudies ? toWord(numberOfCaseStudies) + ' have full case studies — the rest link straight to the live sites.' : 'All of them link straight to the live sites.'}`}
         </Paragraph>
       </div>
 
