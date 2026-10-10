@@ -169,7 +169,7 @@ export default function r2Loader({ src, width }: ImageLoaderProps) {
       { group: "Auth", items: ["Argon2id", "Opaque session tokens", "HMAC deposit tokens"] },
     ],
     reflection:
-      "If I did this again, I'd split the RSC decision earlier. The admin panel migration cost a week mid-project that I could have avoided by asking who the screen was optimised for before writing the first component. The rest held up: the token-based deposit flow, the client-side image pipeline, and the DNS migration all worked because they were designed to fail safely — rate limiter fails open, deposit tokens fail closed, images never touch a service that charges by the byte.",
+      "If I did this again, I'd split the RSC decision earlier. The admin panel migration cost a few days mid-project that I could have avoided by asking who the screen was optimised for before writing the first component. The rest held up: the token-based deposit flow, the client-side image pipeline, and the DNS migration all worked because they were designed to fail safely — rate limiter fails open, deposit tokens fail closed, images never touch a service that charges by the byte.",
   },
 
      // ─────────────────────────────────────────────────────────────
@@ -371,6 +371,7 @@ const toPatch  = candidates.filter(c =>  linkedServiceIds.has(c.id));`,
       "Organization hierarchy — Region → Branch → Department with enforced multi-tenant isolation",
       "Members, proxy members, and invitation flow with masked-email public endpoints",
       "Giving — immutable records with void-and-replace corrections, BigInt kobo arithmetic, and locked accounting periods",
+      "Online Giving — Paystack integration with idempotent payment intent creation, webhook replay protection, and reconciliation cron",
       "Remittances — SERIALIZABLE transactions, sequential period enforcement, rate snapshotting, and cross-boundary reconciliation",
       "Attendance — unified session model for services and events with QR check-in and worker headcount",
       "Schedules & Events — 31-day rolling window, `FOR UPDATE SKIP LOCKED` job queue, event instance normalization",
@@ -385,7 +386,6 @@ const toPatch  = candidates.filter(c =>  linkedServiceIds.has(c.id));`,
     next: [
       "Journey — attendance-based follow-up workflows with structured resolution, assignment hierarchy, and audit history",
       "Church Secretary role — non-financial operational visibility without finance permissions",
-      "Online Giving — provider-agnostic payment service already designed, integration pending",
       "Registrations and custom forms for events, visitors, and membership applications",
       "Tauri desktop shell — API-first architecture already supports it, packaging is the remaining work",
       "Public Content Marketplace — long-term direction for church content discovery",

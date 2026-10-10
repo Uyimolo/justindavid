@@ -55,7 +55,12 @@ function FeaturedWorkCard({
   return (
     <Link
       href={`/works/${work.slug}`}
-      className="group border-border bg-card/30 hover:border-primary/30 grid grid-cols-1 gap-3 overflow-hidden rounded-3xl border p-3 shadow-xl backdrop-blur-[1px] transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl lg:grid-cols-2 lg:gap-5 lg:p-5"
+      className={cn(
+        // `isolate` + `transform-gpu` force the card onto its own
+        // compositing layer so the browser can't leave stale white
+        // paint behind when hovering/animating.
+        "group border-border bg-card/30 hover:border-primary/30 isolate grid transform-gpu grid-cols-1 gap-3 overflow-hidden rounded-3xl border p-3 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl lg:grid-cols-2 lg:gap-5 lg:p-5",
+      )}
     >
       {/* Image — inset by the card's padding, so the whole card reads as a frame */}
       <div
@@ -69,6 +74,8 @@ function FeaturedWorkCard({
           alt={work.title}
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-105"
+          // Static imports carry their own blurDataURL, so
+          // `placeholder="blur"` just works here.
           placeholder="blur"
           sizes="(max-width: 1024px) 100vw, 50vw"
         />
@@ -107,7 +114,7 @@ function FeaturedWorkCard({
           {work.description}
         </Paragraph>
 
-        <div className="mt-5 mb-0 hidden  flex-wrap gap-2 lg:mb-8 lg:flex">
+        <div className="mt-5 mb-0 hidden flex-wrap gap-2 lg:mb-8 lg:flex">
           {work.stack.slice(0, 5).map((tech) => (
             <span
               key={tech}

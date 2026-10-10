@@ -70,6 +70,8 @@
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-blink: blink 1.1s steps(1) infinite;
 }
 
 @layer base {
@@ -86,6 +88,17 @@
       transform: translateY(0);
     }
   }
+
+  @keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
 
   .reveal {
     animation: settle 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;

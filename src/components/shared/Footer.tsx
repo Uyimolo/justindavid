@@ -21,7 +21,7 @@ const Footer = () => {
               Ready to build something <br className="hidden md:block" />{" "}
               amazing together?
             </h2>
-            <p className="text-gray-200 mb-10 max-w-lg md:text-lg">
+            <p className="text-background/60 mb-10 max-w-lg md:text-lg">
               Currently accepting new projects and collaborations. Let&apos;s
               turn your vision into a high-performance web reality.
             </p>
